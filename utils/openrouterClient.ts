@@ -40,7 +40,7 @@ Respond ONLY with valid JSON in this exact format:
     const response = await axios.post(
       OPENROUTER_API_URL,
       {
-        model: 'openai/gpt-4o-mini',
+        model: 'openai/gpt-4.1-mini',
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: prompt },
