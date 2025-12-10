@@ -65,32 +65,31 @@ export default function CrosswordGrid({
   }, [selectedCell, grid, onCellChange, onCellSelect]);
 
   return (
-    <div ref={gridRef} className="inline-block bg-white p-4 rounded-lg shadow-lg">
-      <div className="grid gap-0" style={{ gridTemplateColumns: 'repeat(12, 1fr)' }}>
+    <div ref={gridRef} className="border-2 border-black rounded-lg overflow-hidden">
+      <div className="grid grid-cols-12 gap-0">
         {grid.map((row, y) =>
           row.map((cell, x) => (
             <div
               key={`${x}-${y}`}
               onClick={() => !cell.isBlank && onCellSelect(x, y)}
-              className={`w-10 h-10 border border-gray-400 relative cursor-pointer ${
-                cell.isBlank
-                  ? 'bg-black'
-                  : selectedCell?.x === x && selectedCell?.y === y
-                  ? 'bg-yellow-200'
-                  : 'bg-white hover:bg-gray-100'
+              className={`relative ${
+                cell.isBlank ? 'bg-black' : 'bg-white'
               }`}
+              style={{ width: '48px', height: '48px' }}
             >
               {!cell.isBlank && (
-                <>
+                <div className="w-full h-full border border-gray-300 relative">
                   {cell.number && (
-                    <span className="absolute top-0 left-0 text-[8px] font-bold px-0.5">
+                    <span className="absolute top-0.5 left-1 text-xs font-black text-black z-10">
                       {cell.number}
                     </span>
                   )}
-                  <div className="w-full h-full flex items-center justify-center text-lg font-bold">
+                  <div className={`w-full h-full flex items-center justify-center text-xl font-bold text-black ${
+                    selectedCell?.x === x && selectedCell?.y === y ? 'bg-blue-50' : ''
+                  }`}>
                     {cell.userInput || ''}
                   </div>
-                </>
+                </div>
               )}
             </div>
           ))

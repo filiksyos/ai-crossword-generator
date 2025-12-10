@@ -94,10 +94,15 @@ export default function PuzzlePage() {
     );
   }
 
+  const gridPattern = {
+    backgroundImage: 'linear-gradient(90deg,rgba(0,0,0,.03) 1px,transparent 0),linear-gradient(180deg,rgba(0,0,0,.03) 1px,transparent 0)',
+    backgroundSize: '40px 40px'
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 p-8">
+    <div className="min-h-screen bg-white p-8" style={gridPattern}>
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-black via-gray-700 to-black text-transparent bg-clip-text">
           🧩 Your AI-Generated Crossword
         </h1>
 

@@ -33,11 +33,16 @@ export default function LandingPage() {
     }
   };
 
+  const gridPattern = {
+    backgroundImage: 'linear-gradient(90deg,rgba(0,0,0,.03) 1px,transparent 0),linear-gradient(180deg,rgba(0,0,0,.03) 1px,transparent 0)',
+    backgroundSize: '40px 40px'
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4" style={gridPattern}>
       <div className="max-w-2xl w-full">
         <div className="text-center mb-12">
-          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-black via-gray-700 to-black text-transparent bg-clip-text">
             🧩 AI Crossword Generator
           </h1>
           <p className="text-gray-600 text-xl">
@@ -49,7 +54,7 @@ export default function LandingPage() {
           <label className="block mb-4">
             <span className="text-gray-700 font-semibold text-lg">What kind of crossword do you want?</span>
             <textarea
-              className="mt-2 block w-full rounded-lg border border-gray-300 p-4 text-gray-900 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all"
+              className="mt-2 block w-full rounded-lg border border-gray-300 p-4 text-gray-900 focus:border-black focus:ring-2 focus:ring-black transition-all"
               rows={4}
               placeholder="e.g., 'Create a crossword about space exploration and famous astronauts' or 'I want a puzzle about 90s pop culture'"
               value={prompt}
@@ -61,7 +66,7 @@ export default function LandingPage() {
           <button
             onClick={handleGenerate}
             disabled={isLoading || !prompt.trim()}
-            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-4 px-6 rounded-lg hover:from-purple-700 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95"
+            className="w-full bg-black text-white font-bold py-4 px-6 rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95"
           >
             {isLoading ? (
               <span className="flex items-center justify-center">
@@ -84,7 +89,7 @@ export default function LandingPage() {
               <button
                 key={example}
                 onClick={() => setPrompt(`Create a crossword about ${example}`)}
-                className="text-xs bg-white px-3 py-1 rounded-full border border-gray-300 hover:border-purple-500 hover:text-purple-600 transition-all"
+                className="text-xs bg-white px-3 py-1 rounded-full border border-gray-300 hover:border-black hover:text-black transition-all"
                 disabled={isLoading}
               >
                 {example}

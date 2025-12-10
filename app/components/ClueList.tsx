@@ -13,7 +13,7 @@ export default function ClueList({ clues, completedClues }: ClueListProps) {
 
   const renderClues = (clueList: CrosswordClue[], title: string) => (
     <div className="mb-6">
-      <h3 className="text-xl font-bold mb-3 text-gray-800">{title}</h3>
+      <h3 className="text-xl font-bold mb-3 text-black">{title}</h3>
       <div className="space-y-2">
         {clueList.map((clue) => (
           <div
@@ -22,7 +22,7 @@ export default function ClueList({ clues, completedClues }: ClueListProps) {
               completedClues.has(clue.number) ? 'bg-green-100 text-green-800' : 'bg-gray-50'
             }`}
           >
-            <span className="font-semibold">{clue.number}.</span> {clue.clue}
+            <span className="font-bold text-black">{clue.number}.</span> <span className="text-gray-700">{clue.clue}</span>
           </div>
         ))}
       </div>
@@ -30,7 +30,7 @@ export default function ClueList({ clues, completedClues }: ClueListProps) {
   );
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg max-h-[600px] overflow-y-auto">
+    <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-h-[600px] overflow-y-auto">
       {renderClues(acrossClues, 'Across')}
       {renderClues(downClues, 'Down')}
     </div>
